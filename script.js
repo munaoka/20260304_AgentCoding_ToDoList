@@ -5,6 +5,13 @@ let selectedLabel = 'すべて'; // フィルター対象のラベル
 
 // 初期化時にUIを設定
 document.addEventListener('DOMContentLoaded', function() {
+    // タスクを整理（古いデータでラベルプロパティがない場合は修正）
+    tasks = tasks.map(task => ({
+        ...task,
+        label: task.label || (labels.length > 0 ? labels[0] : 'その他')
+    }));
+    saveTasks();
+    
     updateLabelSelect();
     renderLabelFilters();
     renderLabelList();
@@ -205,10 +212,16 @@ function renderTasks() {
 
     taskList.innerHTML = '';
 
+    // デバッグ情報をコンソールに出力
+    console.log('Current selectedLabel:', selectedLabel);
+    console.log('All tasks:', tasks);
+
     // 選択されたラベルに基づいてタスクをフィルタリング
     const filteredTasks = selectedLabel === 'すべて' 
         ? tasks 
         : tasks.filter(t => t.label === selectedLabel);
+
+    console.log('Filtered tasks:', filteredTasks);
 
     if (filteredTasks.length === 0) {
         taskList.innerHTML = '<div class="empty-message">タスクがありません</div>';
