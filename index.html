@@ -10,6 +10,22 @@
     <div class="container">
         <h1>📝 ToDoリスト</h1>
         
+        <button class="toggle-label-mgmt" onclick="toggleLabelManagement()">⚙️ ラベル管理</button>
+
+        <div class="label-management" id="labelManagement" style="display: none;">
+            <h3>ラベル設定</h3>
+            <div class="label-input-section">
+                <input 
+                    type="text" 
+                    id="newLabelInput" 
+                    placeholder="新しいラベルを入力..." 
+                    onkeypress="if(event.key==='Enter') addLabel()"
+                >
+                <button onclick="addLabel()">ラベル追加</button>
+            </div>
+            <div class="label-list" id="labelList"></div>
+        </div>
+        
         <div class="input-section">
             <input 
                 type="text" 
@@ -17,13 +33,7 @@
                 placeholder="新しいタスクを入力..." 
                 onkeypress="if(event.key==='Enter') addTask()"
             >
-            <select id="labelSelect">
-                <option value="その他">その他</option>
-                <option value="仕事">仕事</option>
-                <option value="買い物">買い物</option>
-                <option value="勉強">勉強</option>
-                <option value="健康">健康</option>
-            </select>
+            <select id="labelSelect"></select>
             <button onclick="addTask()">追加</button>
         </div>
 
