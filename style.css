@@ -26,14 +26,118 @@ body {
 h1 {
     color: #333;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-size: 28px;
+}
+
+.toggle-label-mgmt {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px 20px;
+    background: #f0f0f0;
+    color: #333;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.toggle-label-mgmt:hover {
+    background: #e0e0e0;
+}
+
+.label-management {
+    background: #f9f9f9;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.label-management h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.label-input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.label-input-section input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.label-input-section button {
+    padding: 10px 15px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.label-input-section button:hover {
+    background: #5568d3;
+}
+
+.label-list {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.label-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+.label-item-text {
+    font-weight: 500;
+}
+
+.label-item-delete {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s;
+}
+
+.label-item-delete:hover {
+    background: #ff5252;
 }
 
 .input-section {
     display: flex;
     gap: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
 }
 
 #taskInput {
@@ -43,9 +147,25 @@ h1 {
     border-radius: 6px;
     font-size: 16px;
     transition: border-color 0.3s;
+    min-width: 150px;
 }
 
 #taskInput:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+#labelSelect {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 16px;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+#labelSelect:focus {
     outline: none;
     border-color: #667eea;
 }
@@ -64,6 +184,35 @@ button {
 
 button:hover {
     background: #5568d3;
+}
+
+.label-filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.label-filter-btn {
+    padding: 8px 15px;
+    background: #f0f0f0;
+    color: #333;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.label-filter-btn:hover {
+    background: #e0e0e0;
+}
+
+.label-filter-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
 }
 
 .task-list {
@@ -96,18 +245,36 @@ button:hover {
     color: #999;
 }
 
+.task-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.task-text {
+    color: #333;
+    font-size: 16px;
+    word-break: break-word;
+}
+
+.task-label {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #e0e0e0;
+    color: #333;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    width: fit-content;
+}
+
 input[type="checkbox"] {
     width: 20px;
     height: 20px;
     cursor: pointer;
     accent-color: #667eea;
-}
-
-.task-text {
-    flex: 1;
-    color: #333;
-    font-size: 16px;
-    word-break: break-word;
+    flex-shrink: 0;
 }
 
 .delete-btn {
