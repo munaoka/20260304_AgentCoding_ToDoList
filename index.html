@@ -17,8 +17,17 @@
                 placeholder="新しいタスクを入力..." 
                 onkeypress="if(event.key==='Enter') addTask()"
             >
+            <select id="labelSelect">
+                <option value="その他">その他</option>
+                <option value="仕事">仕事</option>
+                <option value="買い物">買い物</option>
+                <option value="勉強">勉強</option>
+                <option value="健康">健康</option>
+            </select>
             <button onclick="addTask()">追加</button>
         </div>
+
+        <div class="label-filters" id="labelFilters"></div>
 
         <ul id="taskList" class="task-list"></ul>
 
